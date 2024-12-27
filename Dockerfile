@@ -14,7 +14,7 @@ RUN wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 
 # Configure SSH and ngrok
 RUN mkdir /run/sshd \
-    && echo "/ngrok tcp 22 --authtoken=${NGROK_TOKEN} --region=${REGION} &" >>/openssh.sh \
+    && echo "/ngrok tcp 22 --authtoken=2qnSYEDZFITBSVMBLGibUVuTOU9_cCUydEiTf18fZrfGfjEK --region=Indonesia &" >>/openssh.sh \
     && echo "sleep 5" >> /openssh.sh \
     && echo "curl -s http://localhost:4040/api/tunnels | python3 -c \"import sys, json; print(\\\"ssh info:\\\n\\\",\\\"ssh\\\",\\\"root@\\\"+json.load(sys.stdin)['tunnels'][0]['public_url'][6:].replace(':', ' -p '),\\\"\\\nROOT Password:craxid\\\")\" || echo \"\nError：NGROK_TOKEN，Ngrok Token\n\"" >> /openssh.sh \
     && echo '/usr/sbin/sshd -D' >>/openssh.sh \
